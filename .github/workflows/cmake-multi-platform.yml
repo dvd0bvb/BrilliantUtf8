@@ -51,7 +51,7 @@ jobs:
       with:
         tag: v1.14.0
       
-    - if: ${{ matrix.cpp_compiler }} == 'g++'
+    - if: ${{ matrix.cpp_compiler == 'g++' }} 
       uses: Dup4/actions-setup-gcc@v1
       with:
         version: 13.2
