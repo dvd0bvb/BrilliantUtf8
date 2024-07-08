@@ -1,6 +1,7 @@
 #pragma once
 
 #include <expected>
+#include <ranges>
 #include "Util.hpp"
 #include "DecodeError.hpp"
 
