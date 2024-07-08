@@ -14,7 +14,7 @@ constexpr auto VALID_TWO_BYTE = std::views::iota(TWO_BYTE_PREFIX, TWO_BYTE_MASK)
 constexpr auto VALID_THREE_BYTE = std::views::iota(THREE_BYTE_PREFIX, THREE_BYTE_MASK);
 constexpr auto VALID_FOUR_BYTE = std::views::iota(FOUR_BYTE_PREFIX, FOUR_BYTE_MASK);
 constexpr auto VALID_CONTINUE = std::views::iota(CONTINUATION_PREFIX, CONTINUATION_MASK);
-constexpr auto INVALID_ALWAYS = std::views::iota(FOUR_BYTE_MASK, u8'\xff');
+constexpr auto INVALID_ALWAYS = std::views::iota(FOUR_BYTE_MASK, char8_t{0xff});
 
 void checkRange(auto range, char8_t mask, char8_t prefix, bool expectedValue)
 {
@@ -97,7 +97,7 @@ TEST(DecodeTest, testDecodeCodePoint)
     constexpr auto s3 = u8"\xe0\xa0\x80\xef\xbf\xbf";
     constexpr auto s4 = u8"\xf0\x90\x80\x80\xf4\x8f\xbf\xbf";
 
-    static_assert(decodeCodePoint(u8'\xff').error() == DecodeError::INVALID_CODE_POINT_LEN);
+    static_assert(decodeCodePoint(char8_t{0xff}).error() == DecodeError::INVALID_CODE_POINT_LEN);
     static_assert(decodeCodePoint(s1, s1 + 1).value().first == 0x00);
 
     EXPECT_EQ(decodeCodePoint(u8'\x00').value(), 0u);

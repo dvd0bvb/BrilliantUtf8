@@ -59,7 +59,7 @@ namespace brilliant
             if (const auto result = getCodePointSize(codeUnit))
             {
                 const auto maskIdx = result.value();
-                codePoint = codeUnit & ~MASKS[maskIdx];
+                codePoint = static_cast<std::uint32_t>(codeUnit & ~MASKS[maskIdx]);
                 ++input;
                 if (maskIdx > 0)
                 {
