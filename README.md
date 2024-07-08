@@ -1,3 +1,5 @@
+[![CMake on multiple platforms](https://github.com/dvd0bvb/BrilliantUtf8/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/dvd0bvb/BrilliantUtf8/actions/workflows/cmake-multi-platform.yml)
+
 # BrilliantUtf8
 
 A simple C++ library which decodes UTF8 bytes into code points.
