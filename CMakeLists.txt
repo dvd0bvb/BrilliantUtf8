@@ -5,4 +5,6 @@ project(BrilliantUtf8
     LANGUAGES CXX)
 
 add_subdirectory(include)
+
+enable_testing()
 add_subdirectory(test)
