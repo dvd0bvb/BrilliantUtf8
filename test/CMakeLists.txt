@@ -25,7 +25,7 @@ target_compile_options(
     BrilliantUtf8Test
     PRIVATE
         "$<${gcc_like_cxx}:-Wall;-Wextra;-Wshadow;-Wunused>"
-        "$<$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang>:-stdlib=stdc++>"
+        "$<$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang>:-stdlib=libc++>"
         "$<${msvc_cxx}:$<BUILD_INTERFACE:-W3>>"
 )
 
