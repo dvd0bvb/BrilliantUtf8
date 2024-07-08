@@ -23,7 +23,7 @@ jobs:
       #
       # To add more build types (Release, Debug, RelWithDebInfo, etc.) customize the build_type list.
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-24.04, windows-latest]
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
         include:
@@ -51,12 +51,6 @@ jobs:
       with:
         tag: v1.14.0
       
-    - if: ${{ matrix.cpp_compiler == 'g++' }} 
-      run: sudo apt update && sudo apt install -y gcc-13 g++-13
-
-    - if: ${{ matrix.cpp_compiler == 'clang++' }}
-      run: sudo apt update && sudo apt install -y clang-17
-
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
