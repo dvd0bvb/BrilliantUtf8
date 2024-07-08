@@ -21,7 +21,7 @@ namespace brilliant
             return (codeUnit & mask) == expectedPrefix;
         }
 
-        constexpr std::expected<std::uint8_t, DecodeError> getCodePointSize(char8_t codeUnit) noexcept
+        constexpr inline std::expected<std::uint8_t, DecodeError> getCodePointSize(char8_t codeUnit) noexcept
         {
             for (auto &&[i, tuple] : std::views::enumerate(std::views::zip(MASKS, PREFIXES)))
             {
