@@ -26,7 +26,7 @@ target_compile_options(
     PRIVATE
         "$<${gcc_like_cxx}:-Wall;-Wextra;-Wshadow;-Wunused>"
         "$<$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang>:-stdlib=libc++>"
-        "$<${msvc_cxx}:$<BUILD_INTERFACE:-W3>>"
+        "$<${msvc_cxx}:$<BUILD_INTERFACE:/Wall;/std:c++latest>>"
 )
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/quickbrown.txt ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
