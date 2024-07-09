@@ -2,7 +2,7 @@
 
 #include <expected>
 #include <ranges>
-#include "Util.hpp"
+#include "Constants.hpp"
 #include "DecodeError.hpp"
 
 namespace brilliant
@@ -22,7 +22,7 @@ namespace brilliant
             return (codeUnit & mask) == expectedPrefix;
         }
 
-        constexpr inline std::expected<std::uint8_t, DecodeError> getCodePointSize(char8_t codeUnit) noexcept
+        inline constexpr std::expected<std::uint8_t, DecodeError> getCodePointSize(char8_t codeUnit) noexcept
         {
             for (auto &&[i, tuple] : std::views::enumerate(std::views::zip(MASKS, PREFIXES)))
             {
@@ -34,7 +34,7 @@ namespace brilliant
             return std::unexpected(DecodeError::INVALID_CODE_POINT_LEN);
         }
 
-        constexpr inline std::expected<std::uint32_t, DecodeError> decodeCodePoint(char8_t codePoint)
+        inline constexpr std::expected<std::uint32_t, DecodeError> decodeCodePoint(char8_t codePoint) noexcept
         {
             if (const auto result = getCodePointSize(codePoint))
             {

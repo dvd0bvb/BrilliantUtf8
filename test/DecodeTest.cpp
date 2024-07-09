@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include "Decode.hpp"
+#include "BrilliantUtf8.hpp"
 #include "quickbrown_expectedout.hpp"
 
 using namespace brilliant::utf8;
